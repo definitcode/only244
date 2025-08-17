@@ -2,12 +2,23 @@
   "name": "server",
   "private": true,
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "eslint": "^8.0.0",  // Add ESLint
+    "lint-staged": "^12.0.0",  // Add lint-staged
+    "@typescript-eslint/eslint-plugin": "^5.0.0",  // TypeScript ESLint plugin
+    "@typescript-eslint/parser": "^5.0.0"  // TypeScript ESLint parser
   },
   "peerDependencies": {
     "typescript": "^5"
   },
   "dependencies": {
     "@inquirer/prompts": "^7.5.3"
+  },
+  "scripts": {
+    "lint": "eslint .",  // Lint all files
+    "lint:staged": "lint-staged"  // Lint staged files
+  },
+  "lint-staged": {
+    "*.{js,ts}": "eslint --fix"  // Run ESLint with --fix on staged JS/TS files
   }
 }
